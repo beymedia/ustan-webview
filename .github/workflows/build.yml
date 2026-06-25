@@ -19,10 +19,12 @@ jobs:
         distribution: 'zulu'
         java-version: '17'
 
-    - name: Gradle Quraşdır və APK Yığ
+    - name: Gradle Mühitini Quraşdır
       uses: gradle/actions/setup-gradle@v4
-      with:
-        arguments: assembleDebug
+
+    # Robotun tələb etdiyi yeni standart: Əmri ayrıca "run" ilə veririk
+    - name: APK Faylını Yığ
+      run: gradle assembleDebug
 
     - name: Hazır APK Faylını Yüklənilə bilən Et
       uses: actions/upload-artifact@v4
