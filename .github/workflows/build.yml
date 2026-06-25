@@ -19,9 +19,10 @@ jobs:
         distribution: 'zulu'
         java-version: '17'
 
-    - name: Gradle-i Aktiv Et və APK Yığ
-      run: |
-        gradle assembleDebug
+    - name: Gradle Quraşdır və APK Yığ
+      uses: gradle/actions/setup-gradle@v4
+      with:
+        arguments: assembleDebug
 
     - name: Hazır APK Faylını Yüklənilə bilən Et
       uses: actions/upload-artifact@v4
