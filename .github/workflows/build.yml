@@ -1,0 +1,30 @@
+name: Android APK Build
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Kodu Yüklə
+      uses: actions/checkout@v4
+
+    - name: Java-nı Quraşdır
+      uses: actions/setup-java@v4
+      with:
+        distribution: 'zulu'
+        java-version: '17'
+
+    - name: Gradle-i Aktiv Et və APK Yığ
+      run: |
+        gradle assembleDebug
+
+    - name: Hazır APK Faylını Yüklənilə bilən Et
+      uses: actions/upload-artifact@v4
+      with:
+        name: Ustan_az_Debug_APK
+        path: app/build/outputs/apk/debug/app-debug.apk
