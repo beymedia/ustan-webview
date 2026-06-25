@@ -19,3 +19,8 @@ android {
         }
     }
 }
+
+dependencies {
+    // Android-in əsas komponentlərini tapması üçün bu sətir mütləqdir:
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+}
