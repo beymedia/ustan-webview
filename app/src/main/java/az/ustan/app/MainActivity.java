@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
                 String url = request.getUrl().toString();
                 
                 // 1. Şəkildəki INTENT:// problemini həll edən hissə (Mütləqdir!)
-                if (url.startsWith("intent://")) {
+                if (url.startsWith("https://")) {
                     try {
                         Intent intent = Intent.parseUri(url, Intent.URI_INTENT_SCHEME);
                         if (intent != null) {
