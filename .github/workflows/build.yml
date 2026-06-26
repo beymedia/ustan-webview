@@ -19,10 +19,12 @@ jobs:
         distribution: 'zulu'
         java-version: '17'
 
+    # 🚨 XƏTANI HƏLL EDƏN HİSSƏ: GitHub-a stabil Gradle 8.5 versiyasını məcburi etdik
     - name: Gradle Mühitini Quraşdır
       uses: gradle/actions/setup-gradle@v4
+      with:
+        gradle-version: '8.5'
 
-    # Robotun tələb etdiyi yeni standart: Əmri ayrıca "run" ilə veririk
     - name: APK Faylını Yığ
       run: gradle assembleDebug
 
